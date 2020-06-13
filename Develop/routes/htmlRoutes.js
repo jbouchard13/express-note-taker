@@ -5,6 +5,9 @@ const path = require("path");
 const router = require("express").Router();
 
 const sendHtml = (res, filename) => {
+  // sendFile() - directory, filename you want to display
+  // referenced dave's code from hot restauraunt for this function
+  // use path to join together the location of the html files depending on the input arguments
   return res.sendFile(path.join(__dirname, "..", "public", filename));
 };
 
@@ -12,13 +15,11 @@ const sendHtml = (res, filename) => {
 router.get("/notes", (req, res) => {
   return sendHtml(res, "notes.html");
 });
-// sendFile() - directory, filename you want to display
 
 // get "*" route
 router.get("*", (req, res) => {
   return sendHtml(res, "index.html");
 });
-// sendFile() - directory, filename you want to display
 
 // export the router
 module.exports = router;
