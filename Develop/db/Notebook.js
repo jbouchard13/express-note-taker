@@ -2,11 +2,16 @@
 const fs = require("fs");
 
 class Notebook {
-  // getNotes()
-  // inside of this function
-  // READ from db.json file
-  // the contents of the json file will be displayed on the page
-  // to read a file - readFile() (part of "fs" package)
+  getNotes() {
+    // inside of this function
+    // READ from db.json file
+    // the contents of the json file will be displayed on the page
+    // to read a file - readFile() (part of "fs" package)
+    //fs.readFile("../db.json", (err, data) => {
+    //if (err) throw err;
+    //console.log(data);
+    //});
+  }
   //
   // addNotes()
   // inside of this function
