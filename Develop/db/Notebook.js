@@ -1,4 +1,5 @@
 // require uuidv4 package to generate an id {id : uuidv4(), title: "", text: "",}
+const fs = require("fs");
 
 class Notebook {
   // getNotes()
@@ -17,4 +18,6 @@ class Notebook {
   // call getNotes() and then filter the results to find the id you need and return the ones that don't match
 }
 
-modules.export(Notebook);
+module.export = {
+  Notebook,
+};
