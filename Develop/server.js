@@ -4,7 +4,7 @@ const express = require("express");
 // create a new app with express
 const app = express();
 // set up a new port
-const PORT = 8080;
+const PORT = process.env.PORT || 8080;
 
 // require routes from htmlRoutes and apiRoutes files
 const htmlRoutes = require("./routes/htmlRoutes");

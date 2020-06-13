@@ -5,6 +5,9 @@ const path = require("path");
 const router = require("express").Router();
 
 // get /notes route
+router.get("/notes", (req, res) => {
+  return res.send("Welcome to the notes page");
+});
 // sendFile() - directory, filename you want to display
 
 // get "*" route
