@@ -4,16 +4,18 @@ const router = require("express").Router();
 const Notebook = require("../db/Notebook.js");
 
 // get request for "/api/notes"
-router.get("/api/notes", (req, res) => {
+router.get("/api", (req, res) => {
   Notebook.getNotes();
   // call the getNotes() from the Notebook class
   // res.json(note)
 });
 
 // post request for "/api/notes"
-router.post("", () => {});
-// call the addNotes() from the Notebook class
-// res.json(note)
+router.post("", (req, res) => {
+  // call the addNotes() from the Notebook class
+  const note = Notebook.addNotes();
+  res.json(note);
+});
 
 // delete request for "/api/notes:id"
 router.delete("", () => {});

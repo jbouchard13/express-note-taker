@@ -17,7 +17,7 @@ router.get("/notes", (req, res) => {
 });
 
 // get "*" route
-router.get("*", (req, res) => {
+router.get("/", (req, res) => {
   return sendHtml(res, "index.html");
 });
 
