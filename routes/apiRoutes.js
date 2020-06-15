@@ -51,8 +51,11 @@ router.post("/notes", (req, res) => {
 });
 
 // delete request for "/notes:id" page
-router.delete("/notes:id", (req, res) => {});
-// call the deleteNote() from the Notebook class
-//
+router.delete("/notes:id", (req, res) => {
+  // when the user goes to delete the selected note
+  // filter the db array to find the selected note's id
+  // save the new array to the db file
+  // return the new array the page
+});
 
 module.exports = router;
