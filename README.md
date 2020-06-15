@@ -16,6 +16,9 @@
 >
 > [Questions](#questions)
 
+### Demo
+![express-note-taker](https://user-images.githubusercontent.com/61129844/84614938-8e5c5f80-ae95-11ea-890f-2a8a3678d6eb.gif)
+
 ### Description
 
 This application is an easy to use note taking tool. The user can easily, add, update, and delete notes to help keep track of anything. The page is updated in real time using an express server to update the saved notes depending on whether the user adds or deletes their notes.
