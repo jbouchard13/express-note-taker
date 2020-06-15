@@ -23,9 +23,31 @@ router.get("/notes", (req, res) => {
 
 // post request for "/notes" page
 router.post("/notes", (req, res) => {
-  // call the addNotes() from the Notebook class
-  const note = Notebook.addNotes(req);
-  return res.json(note);
+  // grab the array of json data from db file
+  const notesJsonDb = fs.readFileSync(noteDb);
+  // parse the data from the db file
+  const notesParsed = JSON.parse(notesJsonDb);
+
+  // create a new note when the user hits submit
+  const note = {
+    // create unique id with uuid
+    id: uuid(),
+    // grab the user's title input
+    title: req.body.title,
+    // grab the user's text input
+    text: req.body.text,
+  };
+  // push the new note to the notesParsed array
+  notesParsed.push(note);
+  // turn the note object to a string so it can be saved
+  const notesStr = JSON.stringify(notesParsed);
+  // write the new note to the db file
+  fs.writeFile(noteDb, notesStr, (err, note) => {
+    if (err) throw err;
+    console.log(notesStr, "Note added");
+  });
+  // response with the new note
+  res.json(notesStr);
 });
 
 // delete request for "/notes:id" page
