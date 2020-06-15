@@ -13,9 +13,11 @@ const noteDb = path.join(__dirname, "../db/db.json");
 // get request for "/notes" page
 router.get("/notes", (req, res) => {
   // read from the notes db
+
   fs.readFile(noteDb, "utf-8", (err, notes) => {
     // if an error occurs, throw that error
     if (err) throw err;
+
     // parse the json data so it can be read on the front end
     res.json(JSON.parse(notes));
   });
@@ -25,6 +27,7 @@ router.get("/notes", (req, res) => {
 router.post("/notes", (req, res) => {
   // grab the array of json data from db file
   const notesJsonDb = fs.readFileSync(noteDb);
+
   // parse the data from the db file
   const notesParsed = JSON.parse(notesJsonDb);
 
@@ -37,25 +40,40 @@ router.post("/notes", (req, res) => {
     // grab the user's text input
     text: req.body.text,
   };
+
   // push the new note to the notesParsed array
   notesParsed.push(note);
+
   // turn the note object to a string so it can be saved
   const notesStr = JSON.stringify(notesParsed);
+
   // write the new note to the db file
-  fs.writeFile(noteDb, notesStr, (err, note) => {
-    if (err) throw err;
-    console.log(notesStr, "Note added");
-  });
+  fs.writeFileSync(noteDb, notesStr);
+
   // response with the new note
   res.json(notesStr);
 });
 
 // delete request for "/notes:id" page
-router.delete("/notes:id", (req, res) => {
-  // when the user goes to delete the selected note
+router.delete("/notes/:id", (req, res) => {
+  // grab the note json data from db file
+  const notesJsonDb = fs.readFileSync(noteDb);
+
+  // parse out the data from notes
+  const notesParsed = JSON.parse(notesJsonDb);
+
   // filter the db array to find the selected note's id
+  // save this to a new updated variable
+  const updatedNotes = notesParsed.filter((note) => note.id != req.params.id);
+
+  // stringify the updatedNote
+  const updatedNotesStr = JSON.stringify(updatedNotes);
+
   // save the new array to the db file
+  fs.writeFileSync(noteDb, updatedNotesStr);
+
   // return the new array the page
+  res.json(updatedNotesStr);
 });
 
 module.exports = router;
