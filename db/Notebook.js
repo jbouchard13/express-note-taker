@@ -19,7 +19,7 @@ class Notebook {
     // to read a file - readFile() (part of "fs" package)
   }
   // ---------------------------------------------------------------
-  addNotes() {
+  addNotes(req) {
     // inside of this function
     const addedNote = {
       // create a unique id with uuid
