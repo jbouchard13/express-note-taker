@@ -17,6 +17,8 @@
 > [Questions](#questions)
 
 ### Demo
+[Click here for the deployed app!](https://lit-eyrie-18565.herokuapp.com/)
+
 ![express-note-taker](https://user-images.githubusercontent.com/61129844/84614938-8e5c5f80-ae95-11ea-890f-2a8a3678d6eb.gif)
 
 ### Description
@@ -25,7 +27,7 @@ This application is an easy to use note taking tool. The user can easily, add, u
 
 ### Installation
 
-The application is deployed to Heroku so all the user needs to do is navigate to the specified link down below to use
+The application is deployed to Heroku so all the user needs to do is navigate to the specified link above to use.
 
 ### Usage
 
